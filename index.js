@@ -1,20 +1,20 @@
 //Get discord.js
-const Discord = require('discord.js');
+const { Client } = require('discord.js');
 
 //Create client instance as bot
-const hash = new Discord.Client();
+const hash = new Client();
 
 //Set listener on 'ready'
 hash.on('ready', () => {
-  console.log('HashBot ready!');
+  console.log(`${hash.user.tag} is ready!`);
 });
 
 //Set listener on 'message'
-hash.on('message', message => {
+hash.on('message', msg => {
   //What the user says
-  if (message.content === 'Hey') { 
+  if (msg.content.toLowerCase() === 'hey') { 
   // What the bot replies with
-    message.reply('Hello!'); 
+    msg.channel.send('Hello!');
   }
 });
 
